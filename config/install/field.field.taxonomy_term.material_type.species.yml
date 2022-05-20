@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.species
+    - taxonomy.vocabulary.species
+    - taxonomy.vocabulary.material_type
+  enforced:
+    module:
+      - farm_material_type
+      - farm_species
+id: taxonomy_term.material_type.species
+field_name: species
+entity_type: taxonomy_term
+bundle: material_type
+label: 'Species'
+description: 'What species is this a member of?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      species: species
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

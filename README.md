@@ -1,18 +1,12 @@
 <!---
 Full module name and description.
 -->
-# farm_contrib_template
-Template for farmOS contrib modules.
+# farm_species
+Species taxonomy for farmOS .
 
 This module is an add-on for the [farmOS](http://drupal.org/project/farm)
 distribution.
 
-This repository can be used as a template for starting new
-farmOS contrib modules. It provides the following:
-- Standardized README.md template (see comments and remove what you don't need!)
-- Example module structure.
-- Github action for automated tests:
-  - PHPCS and PHPUnit
 
 <!---
 Geting started.
@@ -26,8 +20,7 @@ Document installation steps.
 
 Install as you would normally install a contributed drupal module.
 
-TODO: Are there good Dupal docs for this? Do we mention composer or?
-TODO: Link to releases.
+See: https://www.drupal.org/docs/extending-drupal/installing-modules for further information.
 
 <!---
 Document any special configuration the module requires. For example:
@@ -37,33 +30,38 @@ Document any special configuration the module requires. For example:
 -->
 ### Configuration
 
+There's no need of additional configuration
+
 <!---
 Document features the module provides.
 -->
 ## Features
 
-<!---
-Document features related to different entity types. For example:
-- Assets, logs, taxonomies, quantity types, data streams
-  - Base fields (added to all bundles)
-  - Bundle fields (added to single bundles)
-- Quick Forms
-- Field modules
-- Special logic
-- Other special features as needed
--->
-### Assets
+Provides a species taxonomy
 
-Adds fields to all asset types:
-- `example_1` (string): An example field.
-- `example_2` (string): Another example field.
+### Taxonomies
 
-<!---
-Document features related to a single bundle.
--->
-#### Land assets
+Creates a new taxonomy:
 
-Adds a new `example` land type for land assets.
+#### species
+
+This taxonomy has some extra fields:
+- `scientific_name` (string): The scientific name of the species.
+- `image` (image): A image field
+
+The module also extends all asset-related taxonomies:
+
+#### plant_type
+
+Add species field and hide crop_family
+
+#### animal_type
+
+Add species field
+
+#### material_type
+
+Add species field
 
 <!---
 Document any quick forms provided by this module.
@@ -71,24 +69,11 @@ Document any quick forms provided by this module.
 ### Quick Forms
 
 <!---
-Document any field modules provided by this module.
--->
-### Field Modules
-
-<!---
-Document any logic provided by this module.
--->
-### Logic
-
-<!---
-Document any other features provided by this module.
--->
-### Other
-
-<!---
 It might be nice to include a FAQ.
 -->
 ## FAQ
+
+Does this module remove the crop_family taxonomy? NO. It hides the field on the plant_type form view
 
 <!---
 Include maintainers.
@@ -96,11 +81,4 @@ Include maintainers.
 ## Maintainers
 
 Current maintainers:
-- Full name (handle) - [profile](https://farmos.org)
-
-<!---
-Include sponsors.
--->
-## Sponsors
-This project has been sponsored by:
-- [Organization](https://farmos.org)
+* Hadrián Candela (c4ndel4) - https://github.com/c4ndel4

@@ -1,0 +1,10 @@
+name: farmOS Species vocabulary
+type: module
+description: Provides an species vocabulary
+package: farmOS Contrib
+core_version_requirement: ^9
+dependencies:
+  - drupal:taxonomy
+  - farm:farm_plant_type
+  - farm:farm_animal_type
+  - farm:farm_material_type

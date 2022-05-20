@@ -1,11 +1,18 @@
 {
-  "name": "paul121/farm_contrib_template",
-  "description": "Example farmOS contrib module.",
+  "name": "drupal/farm_species",
+  "description": "Species taxonomy farmOS contrib module.",
   "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/farm_species",
+  "license": "GPL-2.0-or-later",
+  "support": {
+      "docs": "https://farmOS.org/guide",
+      "forum": "https://farmOS.discourse.group",
+      "chat": "https://matrix.to/#/#farmOS:matrix.org"
+  },
   "authors": [
       {
-          "name": "Author name",
-          "email": "info@farmos.org"
+          "name": "Hadrián Candela",
+          "email": "hadrian.candela@gmail.com"
       }
   ],
   "require": {

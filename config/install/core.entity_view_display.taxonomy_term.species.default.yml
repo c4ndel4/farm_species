@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.species.scientific_name
+    - field.field.taxonomy_term.species.image
+    - taxonomy.vocabulary.species
+  enforced:
+    module:
+      - farm_species
+  module:
+    - image
+    - text
+id: taxonomy_term.species.default
+targetEntityType: taxonomy_term
+bundle: species
+mode: default
+content:
+  scientific_name:
+    type: text_default
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  image:
+    type: image
+    weight: 5
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden: {  }

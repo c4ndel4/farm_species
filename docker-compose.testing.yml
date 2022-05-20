@@ -9,7 +9,7 @@ services:
 
   www:
     environment:
-      - MODULE_NAME
+      - farm_species
     depends_on:
       - db
     image: farmos/farmos:2.x-dev
