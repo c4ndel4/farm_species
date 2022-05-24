@@ -100,9 +100,10 @@ function farm_species_pre_install () {
  * Implements hook_install().
  */
 function farm_species_install () {
+    
+    global $config_directories;
 
-  $config_path = config_get_config_directory(CONFIG_SYNC_DIRECTORY);
-  $config_manager = Drupal::service('config.manager');
+  $config_path = $config_directories[CONFIG_SYNC_DIRECTORY];
   $source = new FileStorage($config_path);
 
   // Obtain the storage manager for vocabularies
