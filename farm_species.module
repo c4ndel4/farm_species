@@ -87,9 +87,9 @@ function farm_species_read_config_from_sync($id) {
 }
 
 /**
- * Implements hook_pre_install().
+ * Implements hook_module_preinstall().
  */
-function farm_species_pre_install () {
+function farm_species_preinstall () {
 
   \Drupal::configFactory()->getEditable('core.entity_form_display.taxonomy_term.plant_type.default')->delete();
   \Drupal::configFactory()->getEditable('core.entity_view_display.taxonomy_term.plant_type.default')->delete();
@@ -102,16 +102,20 @@ function farm_species_pre_install () {
 function farm_species_install () {
     
     global $config_directories;
+  
+  static $fileStorage;
 
-  $config_path = $config_directories[CONFIG_SYNC_DIRECTORY];
-  $source = new FileStorage($config_path);
+  // Create the file storage to read from.
+  if (empty($fileStorage)) {
+    global $config_directories;
+    $fileStorage = new FileStorage($config_directories[CONFIG_SYNC_DIRECTORY]);
+  }
 
   // Obtain the storage manager for vocabularies
   // Create a new vocabulary from the yaml configuration and save
   \Drupal::entityManager()->getStorage('taxonomy_vocabulary')
-    ->create($source->read('taxonomy.vocabulary.species'))
+    ->create($fileStorage->read('taxonomy.vocabulary.species'))
     ->save();
-
 
   farm_species_create_field_from_sync('taxonomy', ['species'], 'scientific_name');
 
