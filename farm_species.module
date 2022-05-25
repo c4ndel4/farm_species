@@ -2,11 +2,10 @@
 
 /**
  * @file
- * farmOS farm_species module.
+ * FarmOS farm_species module.
  */
 
 use Drupal\Core\Config\FileStorage;
-
 
 /**
  * Creates a field from configuration in the sync directory.
@@ -20,6 +19,7 @@ use Drupal\Core\Config\FileStorage;
  *   An array of IDs of the bundles the field should be added to.
  * @param string $field
  *   The name of the field to add.
+ *
  * @see https://blokspeed.net/2019/creating-fields-and-other-configuration-during-updates-drupal
  *
  * @throws \Drupal\Core\Entity\EntityStorageException
@@ -61,8 +61,8 @@ function farm_species_create_field_from_sync($entityTypeId, array $bundles, $fie
 
 /**
  * Synchronize a configuration entity.
- * 
- * Don't use this to create a new field, use 
+ *
+ * Don't use this to create a new field, use
  * farm_species_create_field_from_sync().
  *
  * @param string $id
@@ -89,7 +89,7 @@ function farm_species_read_config_from_sync($id) {
 /**
  * Implements hook_module_preinstall().
  */
-function farm_species_preinstall () {
+function farm_species_preinstall() {
 
   \Drupal::configFactory()->getEditable('core.entity_form_display.taxonomy_term.plant_type.default')->delete();
   \Drupal::configFactory()->getEditable('core.entity_view_display.taxonomy_term.plant_type.default')->delete();
@@ -99,10 +99,10 @@ function farm_species_preinstall () {
 /**
  * Implements hook_install().
  */
-function farm_species_install () {
-    
-    global $config_directories;
-  
+function farm_species_install() {
+
+  global $config_directories;
+
   static $fileStorage;
 
   // Create the file storage to read from.
@@ -112,7 +112,7 @@ function farm_species_install () {
   }
 
   // Obtain the storage manager for vocabularies
-  // Create a new vocabulary from the yaml configuration and save
+  // Create a new vocabulary from the yaml configuration and save.
   \Drupal::entityManager()->getStorage('taxonomy_vocabulary')
     ->create($fileStorage->read('taxonomy.vocabulary.species'))
     ->save();
